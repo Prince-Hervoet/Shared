@@ -47,9 +47,6 @@
 对于 $40 \%$ 的评测用例: $0 \leq x, y \leq 10^{9}, 0 \leq n, m \leq 10^{3}, 1 \leq r \leq 10$.
 
 对于 $100 \%$ 的评测用例: $0 \leq x, y \leq 10^{9}, 0 \leq n, m \leq 5 \times 10^{4}, 1 \leq r \leq 10$.
-
-
-蓝桥杯 2022 省赛 B 组 H 题。
 */
 
 #include <bits/stdc++.h>
