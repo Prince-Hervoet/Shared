@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .LikeMain {
+            position: relative;
+        }
+
+        .LikeMain>svg {
+            position: absolute;
+            transition: all 0.5s;
+        }
+
+        .LikeMain>svg:nth-child(1) {
+            transform: scale(0.5);
+            opacity: 0;
+        }
+
+        .LikeMainChange>svg:nth-child(1) {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .LikeMainChange>svg:nth-child(2) {
+            transform: scale(1.5);
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="LikeMain" id="like_1">
+        <svg t="1681056365775" class="icon" viewBox="0 0 1062 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            p-id="5339" width="32" height="32">
+            <path
+                d="M1034.045577 391.275496a164.608254 164.608254 0 0 0-135.822769-70.14715h-165.167196a721.872869 721.872869 0 0 0 8.384122-125.482354c0-121.290292-90.548513-195.629504-174.6692-195.629503a165.446666 165.446666 0 0 0-167.682432 171.315551 190.31956 190.31956 0 0 1-171.595021 188.363265H89.993487A91.107455 91.107455 0 0 0 0.003915 451.641172v475.100223a100.609459 100.609459 0 0 0 96.696869 97.25581h715.445042a165.446666 165.446666 0 0 0 89.989572-25.990777 170.477139 170.477139 0 0 0 60.365675-67.072972c14.253007-27.947072 85.238569-353.809931 96.97634-417.249785A162.93143 162.93143 0 0 0 1034.045577 391.275496zM279.474634 904.104267a41.920608 41.920608 0 0 1-83.841215 0V503.063784a41.920608 41.920608 0 0 1 83.841215 0z"
+                fill="#d4237a" p-id="5340"></path>
+        </svg>
+        <svg t="1681056365775" class="icon" viewBox="0 0 1062 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            p-id="5339" width="32" height="32">
+            <path
+                d="M1034.045577 391.275496a164.608254 164.608254 0 0 0-135.822769-70.14715h-165.167196a721.872869 721.872869 0 0 0 8.384122-125.482354c0-121.290292-90.548513-195.629504-174.6692-195.629503a165.446666 165.446666 0 0 0-167.682432 171.315551 190.31956 190.31956 0 0 1-171.595021 188.363265H89.993487A91.107455 91.107455 0 0 0 0.003915 451.641172v475.100223a100.609459 100.609459 0 0 0 96.696869 97.25581h715.445042a165.446666 165.446666 0 0 0 89.989572-25.990777 170.477139 170.477139 0 0 0 60.365675-67.072972c14.253007-27.947072 85.238569-353.809931 96.97634-417.249785A162.93143 162.93143 0 0 0 1034.045577 391.275496zM279.474634 904.104267a41.920608 41.920608 0 0 1-83.841215 0V503.063784a41.920608 41.920608 0 0 1 83.841215 0z"
+                fill="#cdcdcd" p-id="5340"></path>
+        </svg>
+
+    </div>
+
+    <script>
+        const ele = document.getElementById("like_1");
+        ele.addEventListener("click", () => {
+            const cl = ele.classList;
+            if (cl.contains("LikeMainChange")) {
+                ele.classList.remove("LikeMainChange");
+            } else {
+                cl.add("LikeMainChange");
+            }
+        })
+
+    </script>
+</body>
+
+</html>
