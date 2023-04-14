@@ -1,136 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-        }
+      body {
+        margin: 0;
+        padding: 0;
+      }
 
-        .mask {
-            position: fixed;
-            background-color: #494949;
-            width: 100vw;
-            height: 100vh;
-            opacity: 0.5;
-            top: 0;
-            left: 0;
-            z-index: 9999;
-        }
+      .mask {
+        position: fixed;
+        background-color: #494949;
+        width: 100vw;
+        height: 100vh;
+        opacity: 0.5;
+        top: 0;
+        left: 0;
+        z-index: 9999;
+        transition: all 0.2s;
+      }
 
-        .chooseBox {
-            min-width: 400px;
-            max-width: 800px;
-            width: 40%;
-            height: 200px;
-            background-color: rgb(234, 234, 234);
-            position: absolute;
-            left: 0;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            margin: auto;
-            border-radius: 10px;
-            border: 0;
-            box-shadow: 5px 5px 10px 2px;
-        }
+      .maskHide {
+        visibility: hidden;
+      }
 
-        .chooseBox_Header {
-            width: 100%;
-            height: 40px;
-            background-color: #d9d9d9;
-            border-radius: 10px 10px 0 0;
-            border: 0;
-            border-bottom: 1px solid black;
-            color: black;
-            font-size: 1.5em;
-            display: flex;
-            align-items: center;
-        }
+      .chooseBox {
+        min-width: 400px;
+        max-width: 800px;
+        width: 40%;
+        height: 200px;
+        background-color: rgb(234, 234, 234);
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        border-radius: 10px;
+        border: 0;
+        box-shadow: 5px 5px 10px 2px;
+      }
 
-        .chooseBox_Header>span {
-            margin-left: 10px;
-        }
+      .chooseBox_Header {
+        width: 100%;
+        height: 40px;
+        background-color: #f8f8f8;
+        border-radius: 10px 10px 0 0;
+        border: 0;
+        border-bottom: 1px solid black;
+        color: black;
+        font-size: 1.5em;
+        display: flex;
+        align-items: center;
+      }
 
-        .bodyBox {
-            width: 100%;
-            height: 120px;
-            background-color: #d9d9d9;
-            border-radius: 10px 10px 0 0;
-            border: 0;
-            /* border-bottom: 1px solid black; */
-            color: black;
-            font-size: 1.3em;
-            text-align: center;
-        }
+      .chooseBox_Header > span {
+        margin-left: 10px;
+      }
 
-        .buttonBox {
-            width: 100%;
-            height: 40px;
-            background-color: #d9d9d9;
-            border-radius: 0 0 10px 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+      .bodyBox {
+        width: 100%;
+        height: 120px;
+        background-color: #ffffff;
+        border-radius: 10px 10px 0 0;
+        border: 0;
+        color: black;
+        font-size: 1.3em;
+        display: flex;
+      }
 
-        .buttonBox>button {
-            width: 80px;
-            height: 35px;
-            border: 0;
-            border-radius: 6px;
-            transition: all 0.3s;
-            color: white;
-            font-size: 1.2em;
-            text-align: center;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 500;
-        }
+      .bodyBox > span {
+        width: 80%;
+        border: 1px solid black;
+        word-wrap: break-word;
+        margin: auto;
+        text-align: left;
+      }
 
-        .buttonBox>button:nth-child(1) {
-            background-color: blue;
-            margin-right: 10px;
-        }
+      .buttonBox {
+        width: 100%;
+        height: 40px;
+        background-color: #ffffff;
+        border-radius: 0 0 10px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
-        .buttonBox>button:nth-child(2) {
-            background-color: rgb(255, 0, 51);
-        }
+      .buttonBox > button {
+        width: 80px;
+        height: 35px;
+        border: 0;
+        border-radius: 8px;
+        border: 3px solid black;
+        transition: background-color 0.1s;
+        color: white;
+        font-size: 1.2em;
+        text-align: center;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 500;
+      }
 
-        .buttonBox>button:hover {
-            box-shadow: 1px 1px 3px 1px;
-        }
+      .buttonBox > button:nth-child(1) {
+        /* background-color: blue; */
+        border: 3px solid rgb(0, 0, 0);
+        color: black;
+        margin-right: 10px;
+      }
 
-        .buttonBox>button:active {
-            background-color: #d9d9d9;
-        }
+      .buttonBox > button:nth-child(2) {
+        background-color: rgb(255, 0, 51);
+      }
+
+      .buttonBox > button:hover {
+        box-shadow: 1px 1px 1px 1px #000000;
+      }
+
+      .buttonBox > button:active {
+        background-color: #d9d9d9;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-    <button>asdfasdf</button>
-    <div class="mask">
-        <div class="chooseBox">
-            <div class="chooseBox_Header">
-                <span>Warn</span>
-            </div>
-            <div class="bodyBox">
-                asdfasdfasdfasfdasdf
-            </div>
-            <div class="buttonBox">
-                <button>YES</button>
-                <button>NO</button>
-            </div>
+  <body>
+    <button id="open">asdfasdf</button>
+    <!-- <div class="mask" id="modal_one">
+      <div class="chooseBox">
+        <div class="chooseBox_Header">
+          <span>Warn</span>
         </div>
-    </div>
+        <div class="bodyBox">
+          <span>jioajfilasjdflkajsdfkljasdfkjaslkdjfasldfjalksjdflasjkdf</span>
+        </div>
+        <div class="buttonBox">
+          <button id="modal_one_yes">YES</button>
+          <button id="modal_one_no">NO</button>
+        </div>
+      </div>
+    </div> -->
+    <script>
+      const open = document.getElementById("open");
+      open.addEventListener("click", (e) => {
+        const parent = e.target.parentElement;
+        console.log(parent);
+        const str =
+          '<div class="mask" id="modal_one">' +
+          "<div class='chooseBox'>" +
+          "<div class='chooseBox_Header'>" +
+          "<span>Warn</span>" +
+          "</div>" +
+          "<div class='bodyBox'>" +
+          "<span>jioajfilasjdflkajsdfkljasdfkjaslkdjfasldfjalksjdflasjkdf</span>" +
+          "</div>" +
+          "<div class='buttonBox'>" +
+          "<button id='modal_one_yes'>YES</button>" +
+          "<button id='modal_one_no'>NO</button>" +
+          "</div>" +
+          "</div>" +
+          "</div>";
+        parent.insertAdjacentHTML("beforeend", str);
+        const btnOne = document.getElementById("modal_one_yes");
+        const btnTwo = document.getElementById("modal_one_no");
 
-</body>
+        btnOne.addEventListener("click", (e) => {
+          const modalOne = document.getElementById("modal_one");
+          if (modalOne) {
+            const parent = modalOne.parentElement;
+            parent.removeChild(modalOne);
+          }
+        });
 
+        btnTwo.addEventListener("click", (e) => {
+          const modalOne = document.getElementById("modal_one");
+          if (modalOne) {
+            const parent = modalOne.parentElement;
+            parent.removeChild(modalOne);
+          }
+        });
+      });
+    </script>
+  </body>
 </html>
