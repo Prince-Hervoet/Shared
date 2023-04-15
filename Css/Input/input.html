@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .mainBox {
+        margin-top: 100px;
+        width: 200px;
+        height: 30px;
+        position: relative;
+      }
+
+      .mainBox > input {
+        border: 0;
+        outline: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 12px;
+        border: 1px solid #aaa;
+        box-sizing: border-box;
+        background-color: #eee;
+        font-size: 1em;
+        padding-left: 8px;
+        position: relative;
+        transition: all 0.2s;
+      }
+      .mainBox > span {
+        height: 100%;
+        /* border: 1px solid springgreen; */
+        left: 15px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #bbb;
+        box-sizing: border-box;
+        pointer-events: none;
+        transition: all 0.3s;
+      }
+
+      .mainBox > input:hover {
+        box-shadow: 1px 1px 1px 1px;
+      }
+
+      .mainBox > input:focus {
+        box-shadow: 1px 1px 1px 1px;
+      }
+
+      .mainBox > input:focus + span {
+        top: -90%;
+        color: black;
+      }
+
+      .mainBox > .move {
+        top: -90%;
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="mainBox" id="aaa">
+      <input />
+      <span>username</span>
+    </div>
+    <script>
+      const input = document.querySelector(".mainBox > input");
+      input.addEventListener("blur", (e) => {
+        const sp = document.querySelector(".mainBox > span");
+        const cl = sp.classList;
+        if (input.value) {
+          cl.add("move");
+        } else {
+          cl.remove("move");
+        }
+      });
+    </script>
+  </body>
+</html>
