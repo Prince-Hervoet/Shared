@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .mainBox {
+        margin-top: 100px;
+        width: 300px;
+        height: 30px;
+        display: flex;
+        /* border: 1px solid red; */
+        align-items: center;
+      }
+
+      .mainBox > input {
+        box-sizing: border-box;
+        height: 100%;
+        width: 85%;
+        border: 2px solid rgb(179, 179, 179);
+        border-radius: 12px 0 0 12px;
+        outline: 0;
+        background-color: rgb(255, 251, 245);
+        padding-left: 5px;
+        font-size: 1em;
+      }
+
+      .mainBox > input:hover {
+        background-color: #eee;
+      }
+
+      .mainBox > input:focus {
+        background-color: #eee;
+      }
+
+      .mainBox > span {
+        box-sizing: border-box;
+        background-color: #f6f6f6;
+        border: 2px solid rgb(179, 179, 179);
+        border-left: 0;
+        flex: 1;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .mainBox > span:hover {
+        cursor: pointer;
+        background-color: #ccc;
+      }
+
+      .mainBox > span:active {
+        cursor: pointer;
+        background-color: #aaa;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="mainBox">
+      <input placeholder="search something" />
+      <span
+        ><svg
+          t="1681619106185"
+          class="icon"
+          viewBox="0 0 1025 1024"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          p-id="2635"
+          width="16"
+          height="16"
+        >
+          <path
+            d="M121.964897 709.911936a416.481669 416.481669 0 1 1 589.035039 0 416.737493 416.737493 0 0 1-589.035039 0z m497.577915-498.857036a287.802136 287.802136 0 1 0 0 407.463868 287.802136 287.802136 0 0 0 0-407.463868z m405.481232 696.289301l-117.039535 116.655799L704.604333 831.428393l127.91206-127.91206z"
+            fill="#4C89FB"
+            p-id="2636"
+          ></path>
+        </svg>
+      </span>
+    </div>
+    <script></script>
+  </body>
+</html>
