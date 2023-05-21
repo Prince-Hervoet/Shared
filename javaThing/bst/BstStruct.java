@@ -2,22 +2,18 @@ package javaThing.bst;
 
 public class BstStruct<K, T> {
 
-    private BstNode<K, T> root;
-
-    private int size = 0;
-
     static public interface Comparer<K> {
         int compare(K a, K b);
     }
+
+    private BstNode<K, T> root;
+
+    private int size = 0;
 
     private Comparer<K> comparer;
 
     BstStruct(Comparer<K> comparer) {
         this.comparer = comparer;
-    }
-
-    public BstNode<K, T> getRoot() {
-        return root;
     }
 
     public int size() {
@@ -48,6 +44,15 @@ public class BstStruct<K, T> {
         }
         return null;
     }
+
+    public void clear() {
+        root = null;
+        size = 0;
+    }
+
+    // ===========================================================================
+    // 以下为private
+    // ===========================================================================
 
     private BstNode<K, T> insert(BstNode<K, T> node, K key, T data) {
         if (node == null) {
