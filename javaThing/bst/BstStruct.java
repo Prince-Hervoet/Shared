@@ -27,6 +27,16 @@ public class BstStruct<K, T> {
         root = insert(root, key, data);
     }
 
+    public void remove(K key) {
+        if (key == null) {
+            return;
+        }
+        if (!containsKey(key)) {
+            return;
+        }
+        root = remove(root, key);
+    }
+
     public T get(K key) {
         if (key == null) {
             return null;
@@ -43,6 +53,24 @@ public class BstStruct<K, T> {
             }
         }
         return null;
+    }
+
+    public boolean containsKey(K key) {
+        if (key == null) {
+            return false;
+        }
+        BstNode<K, T> run = root;
+        while (run != null) {
+            if (comparer.compare(key, run.key) > 0) {
+                // 要插入的数据比当前节点的数据大
+                run = run.right;
+            } else if (comparer.compare(key, run.key) < 0) {
+                run = run.left;
+            } else {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void clear() {
@@ -67,6 +95,38 @@ public class BstStruct<K, T> {
             node = makeBalance(node);
         } else {
             node.data = data;
+        }
+        node.height = Math.max(getHeight(node.left), getHeight(node.right)) + 1;
+        return node;
+    }
+
+    private BstNode<K, T> remove(BstNode<K, T> node, K key) {
+        if (node == null) {
+            return node;
+        }
+        if (comparer.compare(key, node.key) > 0) {
+            node.right = remove(node.right, key);
+            node = makeBalance(node);
+        } else if (comparer.compare(key, node.key) < 0) {
+            node.left = remove(node.left, key);
+            node = makeBalance(node);
+        } else {
+            if (node.left == null || node.right == null) {
+                BstNode<K, T> temp = node;
+                node = node.left == null ? node.right : node.left;
+                temp.left = null;
+                temp.right = null;
+            } else if (node.left != null && node.right != null) {
+                if (getFactor(node) > 0) {
+                    BstNode<K, T> temp = getMaxNode(node.left);
+                    node.data = temp.data;
+                    node.left = remove(node.left, temp.key);
+                } else {
+                    BstNode<K, T> temp = getMinNode(node.right);
+                    node.data = temp.data;
+                    node.right = remove(node.right, temp.key);
+                }
+            }
         }
         node.height = Math.max(getHeight(node.left), getHeight(node.right)) + 1;
         return node;
@@ -130,6 +190,27 @@ public class BstStruct<K, T> {
         }
         return target;
     }
+
+    private BstNode<K, T> getMaxNode(BstNode<K, T> node) {
+        if (node == null) {
+            return null;
+        }
+        while (node.right != null) {
+            node = node.right;
+        }
+        return node;
+    }
+
+    private BstNode<K, T> getMinNode(BstNode<K, T> node) {
+        if (node == null) {
+            return null;
+        }
+        while (node.left != null) {
+            node = node.left;
+        }
+        return node;
+    }
+
 }
 
 class BstNode<K, T> {
