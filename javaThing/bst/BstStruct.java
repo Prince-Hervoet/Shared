@@ -6,7 +6,17 @@ public class BstStruct<K, T> {
         int compare(K a, K b);
     }
 
-    protected BstNode<K, T> root;
+    static public class BstPair<K, T> {
+        public K key;
+        public T value;
+
+        public BstPair(K key, T value) {
+            this.key = key;
+            this.value = value;
+        }
+    }
+
+    private BstNode<K, T> root;
 
     private int size = 0;
 
@@ -51,6 +61,24 @@ public class BstStruct<K, T> {
                 run = run.left;
             } else {
                 return run.data;
+            }
+        }
+        return null;
+    }
+
+    public BstPair<K, T> getPair(K key) {
+        if (key == null) {
+            return null;
+        }
+        BstNode<K, T> run = root;
+        while (run != null) {
+            if (comparer.compare(key, run.key) > 0) {
+                // 要插入的数据比当前节点的数据大
+                run = run.right;
+            } else if (comparer.compare(key, run.key) < 0) {
+                run = run.left;
+            } else {
+                return new BstPair<K, T>(key, run.data);
             }
         }
         return null;
