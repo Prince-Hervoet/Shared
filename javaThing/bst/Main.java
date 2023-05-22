@@ -14,15 +14,12 @@ public class Main {
                 }
             }
         });
-        test.insert(123, 3434);
-        test.insert(145, 999);
-        test.insert(166, 5675);
-        test.insert(34, 3434);
-        test.insert(1, 999);
-        test.insert(3, 5675);
-        test.insert(989, 3434);
-        test.insert(45, 999);
-        test.insert(4567, 5675);
-        System.out.println(test.size());
+        long start = System.currentTimeMillis();
+        for (int i = 0; i < 5000; i++) {
+            test.insert(i, i);
+        }
+        long end = System.currentTimeMillis();
+        System.out.println(test.get(1000002));
+        System.out.println("time: " + (end - start) + "ms");
     }
 }

@@ -6,7 +6,7 @@ public class BstStruct<K, T> {
         int compare(K a, K b);
     }
 
-    private BstNode<K, T> root;
+    protected BstNode<K, T> root;
 
     private int size = 0;
 
@@ -34,6 +34,7 @@ public class BstStruct<K, T> {
         if (!containsKey(key)) {
             return;
         }
+        this.size -= 1;
         root = remove(root, key);
     }
 
@@ -119,23 +120,26 @@ public class BstStruct<K, T> {
             } else if (node.left != null && node.right != null) {
                 if (getFactor(node) > 0) {
                     BstNode<K, T> temp = getMaxNode(node.left);
+                    node.key = temp.key;
                     node.data = temp.data;
                     node.left = remove(node.left, temp.key);
                 } else {
                     BstNode<K, T> temp = getMinNode(node.right);
+                    node.key = temp.key;
                     node.data = temp.data;
                     node.right = remove(node.right, temp.key);
                 }
             }
         }
-        node.height = Math.max(getHeight(node.left), getHeight(node.right)) + 1;
+        if (node != null) {
+            node.height = Math.max(getHeight(node.left), getHeight(node.right)) + 1;
+        }
         return node;
     }
 
     private BstNode<K, T> singleRight(BstNode<K, T> target) {
         BstNode<K, T> lc = target.left;
-        BstNode<K, T> temp = lc.left;
-        target.left = temp;
+        target.left = lc.right;
         lc.right = target;
         lc.height = Math.max(getHeight(lc.left), getHeight(lc.right)) + 1;
         target.height = Math.max(getHeight(target.left), getHeight(target.right)) + 1;
@@ -144,8 +148,7 @@ public class BstStruct<K, T> {
 
     private BstNode<K, T> singleLeft(BstNode<K, T> target) {
         BstNode<K, T> rc = target.right;
-        BstNode<K, T> temp = rc.right;
-        target.right = temp;
+        target.right = rc.left;
         rc.left = target;
         rc.height = Math.max(getHeight(rc.left), getHeight(rc.right)) + 1;
         target.height = Math.max(getHeight(target.left), getHeight(target.right)) + 1;
