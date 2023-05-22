@@ -1,4 +1,4 @@
-package javaThing.bst;
+package javaThings.bst;
 
 public class BstStruct<K, T> {
 
