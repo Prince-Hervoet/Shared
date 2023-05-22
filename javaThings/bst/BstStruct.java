@@ -1,11 +1,20 @@
 package javaThings.bst;
 
+/**
+ * 树结构
+ */
 public class BstStruct<K, T> {
 
+    /**
+     * 比较器
+     */
     static public interface Comparer<K> {
         int compare(K a, K b);
     }
 
+    /**
+     * 键值对
+     */
     static public class BstPair<K, T> {
         public K key;
         public T value;
@@ -244,6 +253,9 @@ public class BstStruct<K, T> {
 
 }
 
+/**
+ * BST树节点
+ */
 class BstNode<K, T> {
     protected K key;
     protected T data;
