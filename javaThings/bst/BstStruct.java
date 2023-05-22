@@ -35,6 +35,10 @@ public class BstStruct<K, T> {
         this.comparer = comparer;
     }
 
+    // ===========================================================================
+    // 以下为public
+    // ===========================================================================
+
     public int size() {
         return size;
     }
@@ -213,6 +217,12 @@ public class BstStruct<K, T> {
         return getHeight(target.left) - getHeight(target.right);
     }
 
+    /**
+     * 调平衡
+     * 
+     * @param target
+     * @return
+     */
     private BstNode<K, T> makeBalance(BstNode<K, T> target) {
         int ff = getFactor(target);
         if (ff > 1) {
