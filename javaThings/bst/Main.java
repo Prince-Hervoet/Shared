@@ -15,7 +15,7 @@ public class Main {
             }
         });
         long start = System.currentTimeMillis();
-        for (int i = 0; i < 5000; i++) {
+        for (int i = 0; i < 10000000; i++) {
             test.insert(i, i);
         }
         long end = System.currentTimeMillis();
