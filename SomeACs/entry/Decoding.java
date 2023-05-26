@@ -1,4 +1,4 @@
-package entry;
+package someacs.entry;
 
 import java.util.Scanner;
 

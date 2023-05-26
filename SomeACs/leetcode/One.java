@@ -1,3 +1,4 @@
+package someacs.leetcode;
 
 /**
     1042. 不邻接植花

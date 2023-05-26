@@ -1,7 +1,10 @@
-package match;
+package someacs.match;
 
 import java.util.Scanner;
 
+/**
+ * 
+ */
 public class MiXiaoYou {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);

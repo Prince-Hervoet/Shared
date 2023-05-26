@@ -1,3 +1,5 @@
+package someacs.some;
+
 import java.util.Random;
 
 public class QuickSort {
