@@ -1,4 +1,4 @@
-package javaThings.bst;
+package javathings.bst;
 
 /**
  * 树结构
