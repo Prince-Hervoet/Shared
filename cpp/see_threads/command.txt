@@ -1,0 +1,3 @@
+g++ main.cpp semaphore.cpp semaphore.hpp task.cpp task.hpp thread_pool.cpp thread_pool.hpp worker.cpp worker.hpp -o SeeThreads
+
+.\SeeThreads.exe

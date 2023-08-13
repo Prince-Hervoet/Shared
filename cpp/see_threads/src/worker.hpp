@@ -1,26 +1,28 @@
 #pragma once
 
 #include <thread>
+
 #include "task.hpp"
 
-namespace letMeSee
-{
-    class ThreadPool;
-    class Worker
-    {
-    public:
-        Worker();
-        Worker(bool isCore, Task *task, ThreadPool *tp);
-        ~Worker();
+namespace letMeSee {
+class ThreadPool;
+class Worker {
+  friend class ThreadPool;
 
-        void Start();
-        void Stop();
+ public:
+  Worker();
+  Worker(bool isCore, Task *task, ThreadPool *tp);
+  ~Worker();
 
-    private:
-        ThreadPool *tp;
-        Task *task;
-        volatile bool isStoped;
-        bool isCore;
-        static void threadFunc(void *args);
-    };
-}
+  void Start();
+  void Stop();
+
+ private:
+  std::thread t;
+  ThreadPool *tp;
+  Task *task;
+  volatile bool isStoped;
+  bool isCore;
+  static void threadFunc(void *args);
+};
+}  // namespace letMeSee
